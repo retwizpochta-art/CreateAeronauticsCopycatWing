@@ -17,7 +17,11 @@ import static com.mumu17.copycat_wing.Copycat_wing.copycat_wing$getNormal;
 public class MixinCopycatFlatPaneBlock implements BlockSubLevelLiftProvider, BlockSubLevelCustomCenterOfMass {
     @Override
     public @NotNull Direction sable$getNormal(BlockState blockState) {
-        return copycat_wing$getNormal(blockState);
+        try {
+            return copycat_wing$getNormal(blockState);
+        } catch (Exception e) {
+            return Direction.NORTH;
+        }
     }
 
     @Override

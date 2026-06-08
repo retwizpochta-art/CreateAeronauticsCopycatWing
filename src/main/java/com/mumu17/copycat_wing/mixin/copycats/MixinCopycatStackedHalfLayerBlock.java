@@ -16,7 +16,11 @@ import org.spongepowered.asm.mixin.Mixin;
 public class MixinCopycatStackedHalfLayerBlock implements BlockSubLevelLiftProvider, BlockSubLevelCustomCenterOfMass {
     @Override
     public @NotNull Direction sable$getNormal(BlockState blockState) {
-        return blockState.getValue(BlockStateProperties.FACING).getOpposite();
+        try {
+            return blockState.getValue(BlockStateProperties.FACING).getOpposite();
+        } catch (Exception e) {
+            return Direction.NORTH;
+        }
     }
 
     @Override
