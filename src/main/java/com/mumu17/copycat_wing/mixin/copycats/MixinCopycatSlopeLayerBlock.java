@@ -19,7 +19,7 @@ public class MixinCopycatSlopeLayerBlock implements BlockSubLevelLiftProvider, B
         try {
             return blockState.getValue(BlockStateProperties.FACING).getOpposite();
         } catch (Exception e) {
-            return Direction.NORTH;
+            return Direction.UP;
         }
     }
 
